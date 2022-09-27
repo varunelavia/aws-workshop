@@ -1,0 +1,48 @@
+stages:
+  - deploy
+
+
+dev-deploy-job:
+  variables:
+    AWS_S3_ORIGIN_BUCKET: s3://dev-cloudworkshop-v1-fe-origin
+  stage: deploy
+  image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+  script:
+    - aws s3 cp index.html $AWS_S3_ORIGIN_BUCKET
+  when: manual
+
+qa-deploy-job:
+  variables:
+    AWS_S3_ORIGIN_BUCKET: s3://dev-cloudworkshop-v1-fe-origin
+  stage: deploy
+  image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+  script:
+    - aws s3 cp index.html $AWS_S3_ORIGIN_BUCKET
+  when: manual
+
+stg-deploy-job:
+  variables:
+    AWS_S3_ORIGIN_BUCKET: s3://dev-cloudworkshop-v1-fe-origin
+  stage: deploy
+  image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+  script:
+    - aws s3 cp index.html $AWS_S3_ORIGIN_BUCKET
+  when: manual
+
+pt-deploy-job:
+  variables:
+    AWS_S3_ORIGIN_BUCKET: s3://dev-cloudworkshop-v1-fe-origin
+  stage: deploy
+  image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+  script:
+    - aws s3 cp index.html $AWS_S3_ORIGIN_BUCKET
+  when: manual
+
+prod-deploy-job:
+  variables:
+    AWS_S3_ORIGIN_BUCKET: s3://dev-cloudworkshop-v1-fe-origin
+  stage: deploy
+  image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+  script:
+    - aws s3 cp index.html $AWS_S3_ORIGIN_BUCKET
+  when: manual
